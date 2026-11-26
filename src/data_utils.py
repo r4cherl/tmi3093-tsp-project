@@ -46,5 +46,3 @@ def rotate_to_start(tour, start=0): #e.g for tour = [7, 3, 0, 5] and start = 0:
     tour = list(tour) #tour.index(0) finds where city 0 is. Here i = 2.
     i = tour.index(start) #tour[i:] is everything from that position onward: [0, 5], tour[:i] is everything before it: [7, 3].
     return tour[i:] + tour[:i] #Joining them gives [0, 5, 7, 3], The cities are in the same circular order, so the loop is the same. Only the starting point changed.
-
-
