@@ -10,11 +10,11 @@ def random_tour(n=50, seed=0):
 
 def nearest_neighbor_tour(D, start=0):
     n = len(D)
-    unvisited = set(range(n)) - {start}
+    unvisited = set(range(n)) - {start} #unvisited is every city except the start.
     tour = [start]
-    while unvisited:
+    while unvisited: #The while loop runs until no cities are left. Each round it looks at the current city cur, which is the last one in the tour.
         cur = tour[-1]
-        nxt = min(unvisited, key=lambda c: (D[cur][c], c)) #min(unvisited, key=lambda c: (D[cur][c], c)) finds the unvisited city that is closest to the current city. If there are ties, it chooses the one with the smallest index.
+        nxt = min(unvisited, key=lambda c: (D[cur][c], c)) #min(unvisited, key=lambda c: (D[cur][c], c)) picks the unvisited c with the smallest distance. 
         tour.append(nxt)
         unvisited.remove(nxt)
     return tour
